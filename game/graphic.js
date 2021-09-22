@@ -31,7 +31,7 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(sizeOfTileX, 0), 0);
     scene.add(player1.graphic);
 
-    player2 = new Player("player2", 0x00ffff, new THREE.Vector2(100, 100), 0);
+    player2 = new Player("player2", 0x00ffff, new THREE.Vector2(0, 0), Math.PI);
     scene.add(player2.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
@@ -57,7 +57,6 @@ function Ground(color, size_x, size_y, nb_tile)
             if (x == sizeOfTileX && y == 0)
             {
                 color = colors[0];
-                console.log("player1 tile")
             }
             
             if (0x000000 != color)
@@ -77,7 +76,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.PointLight(color, 50, 1000);
+    pointLight = new THREE.PointLight(color, 50, 10000000);
 
     pointLight.position.x = position.split(',')[0];
     pointLight.position.y = position.split(',')[1];
